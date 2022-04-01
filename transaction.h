@@ -14,7 +14,7 @@ public:
 
     Transaction(std::string fromAdress, std::string toAdress)
     {
-        this->setOfOperactions[0] = fromAdress; 
+        this->setOfOperactions[0] = fromAdress;
         this->setOfOperactions[1] = toAdress;
         this->setOfOperactions[2] = "NULL"; // Ссылка на транзакцию, которая дала право голоса 
         this->nonce = setNonce();
@@ -44,7 +44,7 @@ public:
     }
 
 private:
-    std::string fromAdress, toAdress, refToTrans; // Адреса: с которого переводится голос; на который переводится голос; ссылка на транзакцию, дающая право голоса
+    std::string fromAdress, toAdress, refToTrans; // Адреса: с которого переводится голос; на который переводится голос. Также ссылка на транзакцию, дающая право голоса
     std::string transactionID; // Хэш идентификатор транзакции
     int nonce; // Защита от дублирования
     std::vector <std::string> setOfOperactions{ fromAdress, toAdress, refToTrans }; // Операции
