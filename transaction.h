@@ -12,11 +12,11 @@ class Transaction
 {
 public:
 
-    Transaction(std::string fromAdress, std::string toAdress)
+    Transaction(std::string fromAdress, std::string toAdress, std::string refToTrans = "NULL")
     {
         this->setOfOperactions[0] = fromAdress;
         this->setOfOperactions[1] = toAdress;
-        this->setOfOperactions[2] = "NULL"; // Ссылка на транзакцию, которая дала право голоса 
+        this->setOfOperactions[2] = refToTrans; // Ссылка на транзакцию, которая дала право голоса 
         this->nonce = setNonce();
         this->setHash(this->toInput());
     }
@@ -25,7 +25,7 @@ public:
     {
         this->setOfOperactions[0] = transaction.fromAdress;
         this->setOfOperactions[1] = transaction.toAdress;
-        this->setOfOperactions[2] = "NULL"; // Ссылка на транзакцию, которая дала право голоса 
+        this->setOfOperactions[2] = transaction.refToTrans; // Ссылка на транзакцию, которая дала право голоса 
         this->nonce = setNonce();
         this->setHash(this->toInput());
     }
